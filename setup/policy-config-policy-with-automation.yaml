@@ -62,7 +62,7 @@ spec:
                     secret: ansible
                     type: AnsibleJob
                   mode: disabled
-                  policyRef: policy-namespace-prod-ns
+                  policyRef: policy-namespace
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
