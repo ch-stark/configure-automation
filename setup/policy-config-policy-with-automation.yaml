@@ -52,17 +52,13 @@ spec:
                   annotations:
                   name: policy-namespace-policy-automation
                   namespace: policies
-                  labels:
-                    cluster.open-cluster-management.io/copiedFromNamespace: ansible-automation-platform
-                    cluster.open-cluster-management.io/copiedFromSecretName: ansible
-                    cluster.open-cluster-management.io/type: ans
                 spec:
                   automationDef:
                     name: Demo Job Template
-                    secret: ansible
+                    secret: '{{ fromSecret "ansible-automation-platform" "mycred " "data"}}'
                     type: AnsibleJob
                   mode: disabled
-                  policyRef: policy-namespace
+                  policyRef: policy-namespace-prod-ns
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
